@@ -1,4 +1,4 @@
-# Satelize [![NPM version](https://badge.fury.io/js/dynupdate.png)](http://badge.fury.io/js/dynupdate) [![Build Status](https://travis-ci.org/darul75/dynupdate.png?branch=master)](https://travis-ci.org/darul75/dynupdate)
+# Dynupdate [![NPM version](https://badge.fury.io/js/dynupdate.png)](http://badge.fury.io/js/dynupdate) [![Build Status](https://travis-ci.org/darul75/dynupdate.png?branch=master)](https://travis-ci.org/darul75/dynupdate)
 
 **Dynupdate** is a small implementation for NodeJS to update no-ip and submit a dynamic dns update request.
 
