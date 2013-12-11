@@ -13,11 +13,12 @@ function DynUpdate() {
   this.init();
 
   this.dynupdate(this.options, function(ok, err){    
-    console.log(err);
-  });  
+    if (err)
+      console.log(err);
+  });
 }
 
-DynUpdate.prototype.init = function() {  
+DynUpdate.prototype.init = function() {
   
   var args = process.argv.splice(2);
 
