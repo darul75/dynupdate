@@ -1,0 +1,37 @@
+{
+  "name": "dynupdate",
+  "description": "No-IP Dynamic DNS and how to submit a dynamic dns update request.",
+  "version": "0.0.1",
+  "author": {
+    "name": "Julien Valéry",
+    "email": "darul75@gmail.com"
+  },
+  "homepage": "https://github.com/darul75/dynupdate",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/darul75/dynupdate.git"
+  },  
+  "keywords": [
+    "ip",
+    "dns",
+    "no-ip"
+  ],
+  "main": "./lib/dynupdate",
+  "scripts": {
+    "test": "mocha test/*.js"
+  },
+  "engines": {
+    "node": ">=0.6.x"
+  },
+  "devDependencies": {   
+    "mocha": "",
+    "grunt": "latest",
+    "grunt-contrib-jshint": "latest",
+    "grunt-contrib-uglify": "latest"
+  },
+  "bugs": {
+    "url": "https://github.com/darul75/dynupdate/issues"
+  },
+  "readmeFilename": "README.md",
+  "license": "MIT"
+}
