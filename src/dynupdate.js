@@ -12,9 +12,10 @@ function DynUpdate() {
   this.options = {};
   this.init();
 
-  this.dynupdate(this.options, function(ok, err){    
+  this.dynupdate(this.options, function(err, status){    
     if (err)
       console.log(err);
+    console.log(status);
   });
 }
 

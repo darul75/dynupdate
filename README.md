@@ -1,110 +1,53 @@
-# Satelize [![NPM version](https://badge.fury.io/js/satelize.png)](http://badge.fury.io/js/satelize) [![Build Status](https://travis-ci.org/darul75/satelize.png?branch=master)](https://travis-ci.org/darul75/satelize)
+# Satelize [![NPM version](https://badge.fury.io/js/dynupdate.png)](http://badge.fury.io/js/dynupdate) [![Build Status](https://travis-ci.org/darul75/dynupdate.png?branch=master)](https://travis-ci.org/darul75/dynupdate)
 
-**Satelize** is a small implementation for NodeJS to retrieve user location information based on IP, combined with expressjs for instance make life easier to get some stuff as latitude/longitude of your visitor.
-
-Inspired and using http://www.telize.com/ service. Free today.
-
-You will find informations there too.
+**Dynupdate** is a small implementation for NodeJS to update no-ip and submit a dynamic dns update request.
 
 ## Why ?
 
-Because ecchymose in the nose. I needed something but on server side.
-
-With expressjs for instance, you can get your request IP, then just need to use this library that will make the call to get user location data.
-
-And it is done.
+Because ecchymose in the nose. IP may change my friend.
 
 ## Demo
 
-http://darul-demo.herokuapp.com/satelize
 
 ## Install
 
 ~~~
-npm install satelize
+npm install dynupdate
 ~~~
 
 ## Usage
 
 ```javascript
-var satelize = require('satelize');
+var dynupdate = require('dynupdate');
 
-// Example retrieve IP from request
-// var ip = req.header('x-forwarded-for') || req.connection.remoteAddress;
-
-// then satelize call 
-
-satelize.satelize({ip:'46.19.37.108'}, function(err, geoData) {
+dynupdate.dynupdate({hostname: 'darulmongo.no-ip.biz', auth:'user:password', myip: '0.0.0.0'}, function(err, status) {
   // process err
   
-  // if data is JSON, we may wrap it in js object
-  var obj = JSON.parse(geoData);
-  
-  
-  // if used with expressjs
-  // res.send(geoData);
-  // res.json...
+  // process status
+  // - good IP_ADDRESS Success DNS hostname update successful. Followed by a space and the IP address it was updated to.
+  // - nochg IP_ADDRESS  Success IP address is current, no update performed. Followed by a space and the IP address that it is currently set to.
+  // - nohost  Error Hostname supplied does not exist under specified account, client exit and require user to enter new login credentials before performing and additional request.
+  // - badauth Error Invalid username password combination
+  // - badagent  Error Client disabled. Client should exit and not perform any more updates without user intervention.
+  // - !donator  Error An update request was sent including a feature that is not available to that particular user such as offline options.
+  // - abuse Error Username is blocked due to abuse. Either for not following our update specifications or disabled due to violation of the No-IP terms of service. Our terms of service can be viewed at http://www.noip.com/legal/tos. Client should stop sending updates.
+  // -911 Error A fatal error on our side such as a database outage. Retry the update no sooner 30 minutes.
 });
-    
-    
-// MORE EXAMPLES
-
-satelize.satelize({ip:'46.19.37.108'}, function(err, geoData) {
-}); // json output for this ip
-
-satelize.satelize({ip:'46.19.37.108', JSONP: true}, function(err, geoData) {
-}); // jsonp output for this ip
-
-satelize.satelize({}, function(err, geoData) {
-}); // json output request ip, meaning server
-
-satelize.satelize({JSONP: true}, function(err, geoData) {
-}); // jsonp output request ip
-```    
-    
+        
 ## Return    
 
-~~~ json
-{
-    "ip": "46.19.37.108",
-    "country_code": "NL",
-    "country_code3": "NLD",
-    "country": "Netherlands",
-    "continent_code": "EU",
-    "latitude": 52.5,
-    "longitude": 5.75,
-    "dma_code": "0",
-    "area_code": "0",
-    "asn": "AS196752",
-    "isp": "Tilaa V.O.F.",
-    "timezone":"Europe/Amsterdam"
-}
+~~~ status
+The one above
 ~~~
 
 Details
 
-- **ip** (Visitor IP address, or IP address specified as parameter)
-- **country_code** (Two-letter ISO 3166-1 alpha-2 country code)
-- **country_code3** (Three-letter ISO 3166-1 alpha-3 country code)
-- **country** (Name of the country)
-- **region_code** (Two-letter ISO-3166-2 state / region code)
-- **region** (Name of the region)
-- **city** (Name of the city)
-- **postal_code** (Postal code / Zip code)
-- **continent_code** (Two-letter continent code)
-- **latitude** (Latitude)
-- **longitude** (Longitude)
-- **dma_code** (DMA Code)
-- **area_code** (Area Code)
-- **asn** (Autonomous System Number)
-- **isp** (Internet service provider)
-- **timezone** (Time Zone)
-
+- **good** 
 
 ## Options
 
-- **ip** : if not set, give request ip.
-- **JSONP** : if set give JSONP output, default format is json. I do not like JSONP ;)
+- **hostname** : 
+- **auth** : 
 
 ## License
 
