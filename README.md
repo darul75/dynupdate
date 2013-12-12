@@ -1,6 +1,6 @@
 # Dynupdate [![NPM version](https://badge.fury.io/js/dynupdate.png)](http://badge.fury.io/js/dynupdate) [![Build Status](https://travis-ci.org/darul75/dynupdate.png?branch=master)](https://travis-ci.org/darul75/dynupdate) [![Total views](https://sourcegraph.com/api/repos/github.com/darul75/dynupdate/counters/views.png)](https://sourcegraph.com/github.com/darul75/dynupdate)
 
-**Dynupdate** is a small implementation for NodeJS to update no-ip and submit a dynamic dns update request.
+**Dynupdate** NodeJS module to update no-ip and submit a dynamic dns update request.
 
 ## Why ?
 
