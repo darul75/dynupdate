@@ -9,13 +9,15 @@ var serviceHost = 'dynupdate.no-ip.com';
 var servicePath = '/nic/update';
 
 function DynUpdate() {
+
   this.options = {};
   this.init();
 
   this.dynupdate(this.options, function(err, status){    
     if (err)
       console.log(err);
-    console.log(status);
+    else
+      console.log('ok' + status);
   });
 }
 
@@ -40,8 +42,8 @@ DynUpdate.prototype.init = function() {
 };
 
 DynUpdate.prototype.dynupdate = function(options, next) {
-  var hostname; // darulmongo.no-ip.biz
-  var myip;     // 82.66.85.67  
+  var hostname;
+  var myip;
   var offline;
   var auth;
 
@@ -56,7 +58,7 @@ DynUpdate.prototype.dynupdate = function(options, next) {
   var offlineParam = offline ? '&offline=YES': '';
 
   var path = '?hostname='+hostname+'&myip='+myip+offlineParam;
-  var opts = {
+  var opts = {      
     hostname: serviceHost,
     path: servicePath + path,
     method: 'GET',
@@ -68,7 +70,20 @@ DynUpdate.prototype.dynupdate = function(options, next) {
     res.setEncoding('utf8');
     var output = '';
     res.on('data', function (chunk) { output += chunk; });
-    res.on('end', function() { return next(null, output); });
+    res.on('end', function() { 
+      switch (output) {
+        case 'nohost':
+        case 'badauth':
+        case 'badagent':
+        case '!donator':
+        case 'abuse':
+        case '911':
+          return next(new Error(output));        
+        default:
+          return next(null, output);        
+      }
+      
+    });
   });
   req.on('error', function(e) { return next(e); });      
   req.setTimeout(1000, function() { return next(new Error('timeout')); });
