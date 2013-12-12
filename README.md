@@ -6,6 +6,10 @@
 
 Because ecchymose in the nose. IP may change my friend and DNS has to be updated.
 
+## Demo
+
+http://darul-demo.herokuapp.com/dynupdate
+
 ## Install
 
 ~~~
