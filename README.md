@@ -4,10 +4,7 @@
 
 ## Why ?
 
-Because ecchymose in the nose. IP may change my friend.
-
-## Demo
-
+Because ecchymose in the nose. IP may change my friend and DNS has to be updated.
 
 ## Install
 
@@ -19,7 +16,7 @@ npm install dynupdate
 
 ### Command line
 ```
-node dynupdate.js user:password domain.no-ip.biz 82.66.85.69
+node dynupdate.js user:password domain.no-ip.biz 0.0.0.0
 ```
 
 ### Application
