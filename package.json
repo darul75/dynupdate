@@ -14,7 +14,8 @@
   "keywords": [
     "ip",
     "dns",
-    "no-ip"
+    "no-ip",
+    "nodejs"
   ],
   "main": "./lib/dynupdate",
   "scripts": {
