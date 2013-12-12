@@ -19,7 +19,7 @@ npm install dynupdate
 
 ### Command line
 ```
-node dynupdate.js auth=user:password hostname=domain.no-ip.biz myip=82.66.85.69
+node dynupdate.js user:password domain.no-ip.biz 82.66.85.69
 ```
 
 ### Application
