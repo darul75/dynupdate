@@ -17,37 +17,43 @@ npm install dynupdate
 
 ## Usage
 
+### Command line
+```
+node dynupdate.js auth=user:password hostname=domain.no-ip.biz myip=82.66.85.69
+```
+
+### Application
 ```javascript
 var dynupdate = require('dynupdate');
 
-dynupdate.dynupdate({hostname: 'darulmongo.no-ip.biz', auth:'user:password', myip: '0.0.0.0'}, function(err, status) {
+dynupdate.dynupdate({hostname: 'coucou.no-ip.biz', auth:'user:password', myip: '0.0.0.0'}, function(err, status) {
   // process err
   
-  // process status
-  // - good IP_ADDRESS Success DNS hostname update successful. Followed by a space and the IP address it was updated to.
-  // - nochg IP_ADDRESS  Success IP address is current, no update performed. Followed by a space and the IP address that it is currently set to.
-  // - nohost  Error Hostname supplied does not exist under specified account, client exit and require user to enter new login credentials before performing and additional request.
-  // - badauth Error Invalid username password combination
-  // - badagent  Error Client disabled. Client should exit and not perform any more updates without user intervention.
-  // - !donator  Error An update request was sent including a feature that is not available to that particular user such as offline options.
-  // - abuse Error Username is blocked due to abuse. Either for not following our update specifications or disabled due to violation of the No-IP terms of service. Our terms of service can be viewed at http://www.noip.com/legal/tos. Client should stop sending updates.
-  // -911 Error A fatal error on our side such as a database outage. Retry the update no sooner 30 minutes.
+  
 });
-        
-## Return    
-
-~~~ status
-The one above
-~~~
-
-Details
-
-- **good** 
+```
 
 ## Options
 
-- **hostname** : 
-- **auth** : 
+* `hostname` no-ip domain 
+* `auth` user:password ( email / mdp )
+* `myip` new target IP
+* `offline` YES or NO, string, set offline status
+        
+## Return    
+
+### status
+* `good` IP_ADDRESS Success DNS hostname update successful. Followed by a space and the IP address it was updated to.
+* `nochg` IP_ADDRESS  Success IP address is current, no update performed. Followed by a space and the IP address that it is currently set to.
+
+### err
+* `nohost`  Error Hostname supplied does not exist under specified account, client exit and require user to enter new login credentials before performing and additional request.
+* `badauth`  Error Invalid username password combination
+* `badagent` Error Client disabled. Client should exit and not perform any more updates without user intervention.
+* `!donator` Error An update request was sent including a feature that is not available to that particular user such as offline options.
+* `abuse` Error Username is blocked due to abuse. Either for not following our update specifications or disabled due to violation of the No-IP terms of service. Our terms of service can be viewed at http://www.noip.com/legal/tos. Client should stop sending updates.
+* `911` Error A fatal error on our side such as a database outage. Retry the update no sooner 30 minutes.
+~~~
 
 ## License
 
