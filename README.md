@@ -54,7 +54,6 @@ dynupdate.dynupdate({hostname: 'coucou.no-ip.biz', auth:'user:password', myip: '
 * `!donator` Error An update request was sent including a feature that is not available to that particular user such as offline options.
 * `abuse` Error Username is blocked due to abuse. Either for not following our update specifications or disabled due to violation of the No-IP terms of service. Our terms of service can be viewed at http://www.noip.com/legal/tos. Client should stop sending updates.
 * `911` Error A fatal error on our side such as a database outage. Retry the update no sooner 30 minutes.
-~~~
 
 ## License
 
