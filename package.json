@@ -1,7 +1,7 @@
 {
   "name": "dynupdate",
   "description": "No-IP Dynamic DNS and how to submit a dynamic dns update request.",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": {
     "name": "Julien Valéry",
     "email": "darul75@gmail.com"
