@@ -26,6 +26,7 @@ DynUpdate.prototype.init = function() {
   var args = process.argv.splice(2);
 
   if (args.length <=2 || args.length >4) {
+    process.argv = process.argv.concat(args);
     return;
   }
 
@@ -37,6 +38,8 @@ DynUpdate.prototype.init = function() {
   this.options.hostname = args[1];
   this.options.myip = args[2];
   this.options.offline = args[3];
+
+  process.argv = process.argv.concat(args);
 
   return this;
 };
