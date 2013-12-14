@@ -20,7 +20,7 @@ npm install dynupdate
 
 ### Command line
 ```
-node dynupdate.js user:password domain.no-ip.biz 0.0.0.0
+node dynupdate.js <NO-IP-user:password> <NO-IP-domain> <new-IP> [offline]
 ```
 
 ### Application
