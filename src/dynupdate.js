@@ -51,7 +51,7 @@ DynUpdate.prototype.dynupdate = function(options, next) {
   var auth;
 
   if (!options.auth || !options.hostname || !options.myip)
-    return;
+    return next(new Error("missing parameters: <NO-IP-auth> <NO-IP-hostname> <myip> [offline]"));
   
   hostname = options.hostname || undefined;
   myip = options.myip || undefined;
