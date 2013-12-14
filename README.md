@@ -27,9 +27,8 @@ node dynupdate.js <NO-IP-user:password> <NO-IP-domain> <new-IP> [offline]
 ```javascript
 var dynupdate = require('dynupdate');
 
-dynupdate.dynupdate({hostname: 'coucou.no-ip.biz', auth:'user:password', myip: '0.0.0.0'}, function(err, status) {
+dynupdate.dynupdate({hostname: '', auth:'', myip: ''}, function(err, status) {
   // process err
-  
   
 });
 ```
